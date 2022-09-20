@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
+    return  MaterialApp(  
       title : 'MyApp',
       theme : ThemeData(
         appBarTheme: const AppBarTheme(
@@ -79,7 +79,11 @@ class MyAppBar extends StatelessWidget {
       children: <Item>[
         Item(
           thumbnail : Container(
-            decoration: const BoxDecoration(color: Colors.red),
+            decoration: const BoxDecoration(
+              image : DecorationImage(
+                image: AssetImage('assets/images/image.jpg'),
+              ),
+            ),
             padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50)
           ),
           title: 'jBL. 사운드바',
