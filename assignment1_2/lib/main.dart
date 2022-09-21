@@ -75,37 +75,37 @@ class MyAppBar extends StatelessWidget {
           ],
       ),
       body: ListView(
-      padding: const EdgeInsets.all(8),
-      children: <Item>[
-        Item(
-          thumbnail : Container(
-            decoration: const BoxDecoration(
-              image : DecorationImage(
-                image: AssetImage('assets/images/image.jpg'),
+        padding: const EdgeInsets.all(8),
+        children: <Item>[
+          Item(
+            thumbnail : Container(
+              decoration: const BoxDecoration(
+                image : DecorationImage(
+                  image: AssetImage('assets/images/image.jpg'),
+                ),
               ),
+              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50)
             ),
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50)
+            title: 'jBL. 사운드바',
+            region: '역삼동',
+            regdata: '끌올 1분전',
+            price: 145000,
+            likes: 6,
           ),
-          title: 'jBL. 사운드바',
-          region: '역삼동',
-          regdata: '끌올 1분전',
-          price: 145000,
-          likes: 6,
-        ),
-        Item(
-          thumbnail : Container(
-            decoration: const BoxDecoration(color: Colors.blue),
-            padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50)
-          ),
-          title: '샤넬 캐비어 블랙 클래식 폰홀더',
-          region: '강남구 논현동',
-          regdata: '57초전',
-          price: 2980000,
-          likes: 0,
+          Item(
+            thumbnail : Container(
+              decoration: const BoxDecoration(color: Colors.blue),
+              padding: const EdgeInsets.symmetric(vertical: 50, horizontal: 50)
+            ),
+            title: '샤넬 캐비어 블랙 클래식 폰홀더',
+            region: '강남구 논현동',
+            regdata: '57초전',
+            price: 2980000,
+            likes: 0,
 
-        ),
-      ],
-    ),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -174,12 +174,13 @@ class Item extends StatelessWidget {
           Expanded(
             flex: 1,
             child: thumbnail,
-          ),
+          ),  
+          // ClipRRect로 둥근 썸네일을 만들 수 있음.
           Expanded(
             flex: 2,
             child: ItemDescription(
               title: title,
-              region: region,
+              region: region, 
               regdata: regdata,
               price: price,
               likes: likes,
@@ -243,7 +244,7 @@ class ItemDescription extends StatelessWidget {
             child : Text.rich(
               TextSpan(
                 children: [
-                  WidgetSpan(child: Icon(Icons.thumb_up_alt_outlined, size : 20)),
+                  WidgetSpan(child: Icon(Icons.favorite, size : 20)),
                   TextSpan(text: '$likes'),
                 ],
               ),
