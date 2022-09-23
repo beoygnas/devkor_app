@@ -80,13 +80,13 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Text("$_counter"),
-      // ListView.builder(
-      //   itemBuilder: (context, index){
-      //     return _contacts[index]; 
-      //   }, 
-      //   itemCount: _contacts.length
-      // ),
+      body: 
+      ListView.builder(
+        itemBuilder: (context, index){
+          return _contacts[index]; 
+        }, 
+        itemCount: _contacts.length
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {
           showDialog(
