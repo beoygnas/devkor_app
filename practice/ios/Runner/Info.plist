@@ -47,5 +47,10 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+
+	<!-- Permission options for the `contacts` group -->
+    <key>NSContactsUsageDescription</key>
+    <string>연락처 권한 설정</string>
+
 </dict>
 </plist>
