@@ -27,6 +27,28 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  List<Board> boards = <Board>[
+    Board(
+      img : Image.asset('assets/images/square.jpg', fit : BoxFit.fitWidth),
+      writer : "김상엽",
+      content : "안녕",
+      likes: 10,
+    ),
+    Board(
+      img : Image.asset('assets/images/square.jpg'),
+      writer : "김상엽",
+      content : "안녕",
+      likes: 11,
+    ),
+    Board(
+      img : Image.asset('assets/images/square.jpg'),
+      writer : "김상엽",
+      content : "안녕",
+      likes: 12,
+    ),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,41 +61,70 @@ class _MyAppState extends State<MyApp> {
           iconSize: 30)
         ]
       ),
-      body : Column(children: [
-        [Text('홈페이지'), Text('샵페이지')][tab],
-        
-        Expanded(
-         child : Column(
-          children: [
-              Image.asset('assets/images/trenbe.png'),
-              // TextSpan(
-              //   children: []
-              // )
-              DefaultTextStyle(
-                child: Container(
-                  alignment: Alignment(-1.0, 1.0),
-                  padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("좋아요 100", style: TextStyle(fontWeight: FontWeight.bold),),
-                      Text("글쓴이"),
-                      Text("글내용")],
-                  ), 
-                ),
-                style : TextStyle(color : Colors.black)
-              )
-              
+      body : 
+        ListView.builder(
+        padding: const EdgeInsets.all(0),
+        itemCount : boards.length,
+        itemBuilder: (BuildContext context, index){
+          return boards[index];
+          }
+        ),
+      // Column(
+      //   children: [
+      //     [Text('홈페이지'), Text('샵페이지')][tab],
           
-          ],) 
-        )
-
-      ]),
+      // ]),
       bottomNavigationBar: BottomWidget(tab: tab, changetab : changetab)
     );
   }
 }
 
+// ignore: must_be_immutable
+class Board extends StatelessWidget {
+  
+  Image img;
+  int likes;
+  String writer;
+  String content;
+  
+  Board({super.key, 
+    required this.img, 
+    required this.writer,
+    required this.content, 
+    required this.likes
+    });
+
+   @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 0.0),
+      child: 
+        Column(
+          children: [
+          SizedBox(
+            width : MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.width,
+            child : img
+          ),
+          DefaultTextStyle(
+            child: Container(
+              alignment: Alignment(-1.0, 1.0),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 15),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("좋아요 100", style: TextStyle(fontWeight: FontWeight.bold),),
+                  Text("글쓴이"),
+                  Text("글내용")],
+              ), 
+            ),
+            style : TextStyle(color : Colors.black)
+          ),
+        ],
+      )
+    );
+  }
+}
 
   // Theme(   //레이아웃 중간에 ThemeData()를 생성가능.
       //   data : ThemeData(
